@@ -1,0 +1,43 @@
+[2025-02-28T09:25:18.878+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-28T09:25:18.903+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_akhir_perbaikan.wait_for_new_data scheduled__2025-02-28T09:20:00+00:00 [queued]>
+[2025-02-28T09:25:18.921+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_akhir_perbaikan.wait_for_new_data scheduled__2025-02-28T09:20:00+00:00 [queued]>
+[2025-02-28T09:25:18.922+0000] {taskinstance.py:2866} INFO - Starting attempt 4 of 6
+[2025-02-28T09:25:18.952+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-02-28 09:20:00+00:00
+[2025-02-28T09:25:18.970+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3867) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-28T09:25:18.970+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi_akhir_perbaikan', 'wait_for_new_data', 'scheduled__2025-02-28T09:20:00+00:00', '--job-id', '3787', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp2cw_tyg3']
+[2025-02-28T09:25:18.972+0000] {standard_task_runner.py:72} INFO - Started process 3901 to run task
+[2025-02-28T09:25:18.973+0000] {standard_task_runner.py:105} INFO - Job 3787: Subtask wait_for_new_data
+[2025-02-28T09:25:19.055+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi_akhir_perbaikan.wait_for_new_data scheduled__2025-02-28T09:20:00+00:00 [running]> on host 75f595111fc8
+[2025-02-28T09:25:19.197+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi_akhir_perbaikan' AIRFLOW_CTX_TASK_ID='wait_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2025-02-28T09:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-28T09:20:00+00:00'
+[2025-02-28T09:25:19.200+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-28T09:25:19.201+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-28T09:25:19.202+0000] {logging_mixin.py:190} INFO - Current task name:wait_for_new_data state:running start_date:2025-02-28 09:25:18.904301+00:00
+[2025-02-28T09:25:19.203+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_akhir_perbaikan and current dag run status:running
+[2025-02-28T09:25:19.205+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-28T09:25:19.227+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-28T09:25:19.233+0000] {sql.py:101} INFO - Poking: 
+        SELECT COUNT(*) 
+        FROM tugas_akhir_sensordata s
+        WHERE s.timestamp >= NOW() - INTERVAL 5 MINUTE
+        AND NOT EXISTS (
+            SELECT 1 
+            FROM fertilizer_predictions f
+            WHERE CAST(f.id AS SIGNED) = s.id  -- Menggunakan SIGNED di sini
+        )
+     (with parameters None)
+[2025-02-28T09:25:19.242+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-28T09:25:19.250+0000] {sql.py:553} INFO - Running statement: 
+        SELECT COUNT(*) 
+        FROM tugas_akhir_sensordata s
+        WHERE s.timestamp >= NOW() - INTERVAL 5 MINUTE
+        AND NOT EXISTS (
+            SELECT 1 
+            FROM fertilizer_predictions f
+            WHERE CAST(f.id AS SIGNED) = s.id  -- Menggunakan SIGNED di sini
+        )
+    , parameters: None
+[2025-02-28T09:25:19.252+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-28T09:25:19.288+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-02-28T09:25:19.289+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-28T09:25:19.326+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-28T09:25:19.348+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

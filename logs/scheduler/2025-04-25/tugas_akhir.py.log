@@ -1,0 +1,62 @@
+[2025-04-25T22:35:39.260+0000] {processor.py:186} INFO - Started process (PID=164) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-25T22:35:39.269+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-25T22:35:39.284+0000] {logging_mixin.py:190} INFO - [2025-04-25T22:35:39.280+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-25T22:35:39.446+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-25T22:36:09.426+0000] {logging_mixin.py:190} INFO - [2025-04-25T22:36:09.425+0000] {timeout.py:68} ERROR - Process timed out, PID: 164
+[2025-04-25T22:36:13.459+0000] {logging_mixin.py:190} INFO - [2025-04-25T22:36:11.009+0000] {dagbag.py:387} ERROR - Failed to import: /opt/airflow/dags/tugas_akhir.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dagbag.py", line 383, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/tugas_akhir.py", line 11, in <module>
+    model = joblib.load("/opt/airflow/dags/output/fertilizer_model_knn.pkl")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 658, in load
+    obj = _unpickle(fobj, filename, mmap_mode)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 577, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/pickle.py", line 1256, in load
+    dispatch[key[0]](self)
+  File "/usr/local/lib/python3.12/pickle.py", line 1581, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/pickle.py", line 1622, in find_class
+    __import__(module, level=0)
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/__init__.py", line 73, in <module>
+    from .base import clone  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/base.py", line 19, in <module>
+    from .utils._estimator_html_repr import _HTMLDocumentationLinkMixin, estimator_html_repr
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/__init__.py", line 15, in <module>
+    from ._chunking import gen_batches, gen_even_slices
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/_chunking.py", line 11, in <module>
+    from ._param_validation import Interval, validate_params
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/_param_validation.py", line 17, in <module>
+    from .validation import _is_arraylike_not_scalar
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/validation.py", line 21, in <module>
+    from ..utils._array_api import _asarray_with_order, _is_numpy_namespace, get_namespace
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/_array_api.py", line 17, in <module>
+    from .fixes import parse_version
+  File "/home/airflow/.local/lib/python3.12/site-packages/sklearn/utils/fixes.py", line 17, in <module>
+    import scipy.stats
+  File "/home/airflow/.local/lib/python3.12/site-packages/scipy/stats/__init__.py", line 634, in <module>
+    from ._multivariate import *
+  File "/home/airflow/.local/lib/python3.12/site-packages/scipy/stats/_multivariate.py", line 16, in <module>
+    from . import _mvn, _covariance, _rcont
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1091, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1191, in get_data
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /opt/airflow/dags/tugas_akhir.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://airflow.apache.org/docs/apache-airflow/2.10.4/best-practices.html#top-level-python-code
+* https://airflow.apache.org/docs/apache-airflow/2.10.4/best-practices.html#reducing-dag-complexity, PID: 164
+[2025-04-25T22:36:14.007+0000] {processor.py:927} WARNING - No viable dags retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-25T22:36:21.298+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 41.991 seconds

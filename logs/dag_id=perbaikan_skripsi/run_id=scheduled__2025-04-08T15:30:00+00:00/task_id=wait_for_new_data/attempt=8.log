@@ -1,0 +1,6 @@
+[2025-04-08T15:39:43.298+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-08T15:39:43.371+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: perbaikan_skripsi.wait_for_new_data scheduled__2025-04-08T15:30:00+00:00 [queued]>
+[2025-04-08T15:39:43.425+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: perbaikan_skripsi.wait_for_new_data scheduled__2025-04-08T15:30:00+00:00 [queued]>
+[2025-04-08T15:39:43.430+0000] {taskinstance.py:2866} INFO - Starting attempt 8 of 4
+[2025-04-08T15:39:43.634+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-04-08 15:30:00+00:00
+[2025-04-08T15:39:43.714+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=97972) is multi-threaded, use of fork() may lead to deadlocks in the child.

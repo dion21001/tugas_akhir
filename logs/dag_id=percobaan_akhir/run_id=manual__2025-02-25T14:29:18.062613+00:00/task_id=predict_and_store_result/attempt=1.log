@@ -1,0 +1,28 @@
+[2025-02-25T14:34:38.649+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T14:34:38.698+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T14:29:18.062613+00:00 [queued]>
+[2025-02-25T14:34:38.747+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T14:29:18.062613+00:00 [queued]>
+[2025-02-25T14:34:38.749+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T14:34:38.792+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): predict_and_store_result> on 2025-02-25 14:29:18.062613+00:00
+[2025-02-25T14:34:38.816+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=21316) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T14:34:38.820+0000] {standard_task_runner.py:72} INFO - Started process 21378 to run task
+[2025-02-25T14:34:38.817+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'percobaan_akhir', 'predict_and_store_result', 'manual__2025-02-25T14:29:18.062613+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp0196dazw']
+[2025-02-25T14:34:38.827+0000] {standard_task_runner.py:105} INFO - Job 44: Subtask predict_and_store_result
+[2025-02-25T14:34:38.953+0000] {task_command.py:467} INFO - Running <TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T14:29:18.062613+00:00 [running]> on host 15e5b1e5ccc7
+[2025-02-25T14:34:39.150+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='percobaan_akhir' AIRFLOW_CTX_TASK_ID='predict_and_store_result' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T14:29:18.062613+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T14:29:18.062613+00:00'
+[2025-02-25T14:34:39.153+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T14:34:39.154+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T14:34:39.156+0000] {logging_mixin.py:190} INFO - Current task name:predict_and_store_result state:running start_date:2025-02-25 14:34:38.702565+00:00
+[2025-02-25T14:34:39.157+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir and current dag run status:running
+[2025-02-25T14:34:39.159+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T14:34:39.161+0000] {logging_mixin.py:190} INFO - 🔍 [1] Mengambil data dari XCom...
+[2025-02-25T14:34:39.176+0000] {logging_mixin.py:190} INFO - ⚠️ Tidak ada data dari XCom! Task dihentikan.
+[2025-02-25T14:34:39.177+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-25T14:34:39.189+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T14:34:39.190+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=percobaan_akhir, task_id=predict_and_store_result, run_id=manual__2025-02-25T14:29:18.062613+00:00, execution_date=20250225T142918, start_date=20250225T143438, end_date=20250225T143439
+[2025-02-25T14:34:39.213+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T14:34:39.214+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T14:34:39.215+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir queued_at:2025-02-25 14:29:18.156422+00:00
+[2025-02-25T14:34:39.216+0000] {logging_mixin.py:190} INFO - Task hostname:15e5b1e5ccc7 operator:PythonOperator
+[2025-02-25T14:34:39.258+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T14:34:39.286+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T14:34:39.289+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

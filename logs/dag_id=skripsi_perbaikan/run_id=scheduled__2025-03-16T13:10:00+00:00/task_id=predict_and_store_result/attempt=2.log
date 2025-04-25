@@ -1,0 +1,28 @@
+[2025-04-07T15:05:24.310+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-07T15:05:24.680+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_perbaikan.predict_and_store_result scheduled__2025-03-16T13:10:00+00:00 [queued]>
+[2025-04-07T15:05:24.862+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_perbaikan.predict_and_store_result scheduled__2025-03-16T13:10:00+00:00 [queued]>
+[2025-04-07T15:05:24.872+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 5
+[2025-04-07T15:05:26.812+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): predict_and_store_result> on 2025-03-16 13:10:00+00:00
+[2025-04-07T15:05:27.000+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi_perbaikan', 'predict_and_store_result', 'scheduled__2025-03-16T13:10:00+00:00', '--job-id', '2450', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpal4isqzv']
+[2025-04-07T15:05:27.022+0000] {standard_task_runner.py:105} INFO - Job 2450: Subtask predict_and_store_result
+[2025-04-07T15:05:27.017+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=2770) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-07T15:05:27.094+0000] {standard_task_runner.py:72} INFO - Started process 2945 to run task
+[2025-04-07T15:05:27.794+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi_perbaikan.predict_and_store_result scheduled__2025-03-16T13:10:00+00:00 [running]> on host a9576c91091e
+[2025-04-07T15:05:29.425+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi_perbaikan' AIRFLOW_CTX_TASK_ID='predict_and_store_result' AIRFLOW_CTX_EXECUTION_DATE='2025-03-16T13:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-16T13:10:00+00:00'
+[2025-04-07T15:05:29.446+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-07T15:05:29.454+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-07T15:05:29.458+0000] {logging_mixin.py:190} INFO - Current task name:predict_and_store_result state:running start_date:2025-04-07 15:05:24.690242+00:00
+[2025-04-07T15:05:29.468+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_perbaikan and current dag run status:running
+[2025-04-07T15:05:29.470+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-07T15:05:29.479+0000] {logging_mixin.py:190} INFO - 🔍 [2] Memproses data dan melakukan prediksi...
+[2025-04-07T15:05:29.643+0000] {logging_mixin.py:190} INFO - ⚠️ Tidak ada data untuk diproses.
+[2025-04-07T15:05:29.657+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-07T15:05:30.004+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-07T15:05:30.039+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=skripsi_perbaikan, task_id=predict_and_store_result, run_id=scheduled__2025-03-16T13:10:00+00:00, execution_date=20250316T131000, start_date=20250407T150524, end_date=20250407T150530
+[2025-04-07T15:05:31.245+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-07T15:05:31.252+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-07T15:05:31.270+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_perbaikan queued_at:2025-04-07 14:47:44.282264+00:00
+[2025-04-07T15:05:31.277+0000] {logging_mixin.py:190} INFO - Task hostname:a9576c91091e operator:PythonOperator
+[2025-04-07T15:05:31.473+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-07T15:05:31.583+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-07T15:05:31.608+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

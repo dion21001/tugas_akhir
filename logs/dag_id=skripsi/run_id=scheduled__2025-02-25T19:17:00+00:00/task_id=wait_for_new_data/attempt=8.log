@@ -1,0 +1,26 @@
+[2025-02-25T19:27:22.076+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T19:27:22.149+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi.wait_for_new_data scheduled__2025-02-25T19:17:00+00:00 [queued]>
+[2025-02-25T19:27:22.199+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi.wait_for_new_data scheduled__2025-02-25T19:17:00+00:00 [queued]>
+[2025-02-25T19:27:22.204+0000] {taskinstance.py:2866} INFO - Starting attempt 8 of 9
+[2025-02-25T19:27:22.954+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-02-25 19:17:00+00:00
+[2025-02-25T19:27:23.076+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=80351) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T19:27:23.084+0000] {standard_task_runner.py:72} INFO - Started process 80459 to run task
+[2025-02-25T19:27:23.058+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi', 'wait_for_new_data', 'scheduled__2025-02-25T19:17:00+00:00', '--job-id', '318', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpv8yjy84z']
+[2025-02-25T19:27:23.093+0000] {standard_task_runner.py:105} INFO - Job 318: Subtask wait_for_new_data
+[2025-02-25T19:27:23.379+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi.wait_for_new_data scheduled__2025-02-25T19:17:00+00:00 [running]> on host d22a487e6b55
+[2025-02-25T19:27:24.282+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi' AIRFLOW_CTX_TASK_ID='wait_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T19:17:00+00:00' AIRFLOW_CTX_TRY_NUMBER='8' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-25T19:17:00+00:00'
+[2025-02-25T19:27:24.299+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T19:27:24.305+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T19:27:24.315+0000] {logging_mixin.py:190} INFO - Current task name:wait_for_new_data state:running start_date:2025-02-25 19:27:22.154829+00:00
+[2025-02-25T19:27:24.329+0000] {logging_mixin.py:190} INFO - Dag name:skripsi and current dag run status:running
+[2025-02-25T19:27:24.345+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T19:27:24.524+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T19:27:24.559+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T19:27:24.597+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T19:27:24.630+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T19:27:24.634+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T19:27:24.769+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-02-25T19:27:24.774+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T19:27:24.887+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T19:27:25.193+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T19:27:25.208+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

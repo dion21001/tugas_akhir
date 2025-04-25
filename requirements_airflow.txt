@@ -1,0 +1,9 @@
+apache-airflow
+apache-airflow-providers-postgres
+pandas
+tensorflow
+scikit-learn
+sqlalchemy
+numpy
+pymysql
+djangorestframework==3.15.2

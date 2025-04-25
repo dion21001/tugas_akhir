@@ -1,0 +1,33 @@
+[2025-02-25T13:01:48.342+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T13:01:48.405+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T13:01:33.050424+00:00 [queued]>
+[2025-02-25T13:01:48.467+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T13:01:33.050424+00:00 [queued]>
+[2025-02-25T13:01:48.469+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T13:01:48.546+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): predict_and_store_result> on 2025-02-25 13:01:33.050424+00:00
+[2025-02-25T13:01:48.575+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'percobaan_akhir', 'predict_and_store_result', 'manual__2025-02-25T13:01:33.050424+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpl69pvwbd']
+[2025-02-25T13:01:48.581+0000] {standard_task_runner.py:105} INFO - Job 26: Subtask predict_and_store_result
+[2025-02-25T13:01:48.590+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=68699) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T13:01:48.593+0000] {standard_task_runner.py:72} INFO - Started process 68753 to run task
+[2025-02-25T13:01:48.700+0000] {task_command.py:467} INFO - Running <TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T13:01:33.050424+00:00 [running]> on host 15e5b1e5ccc7
+[2025-02-25T13:01:48.914+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='percobaan_akhir' AIRFLOW_CTX_TASK_ID='predict_and_store_result' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T13:01:33.050424+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T13:01:33.050424+00:00'
+[2025-02-25T13:01:48.918+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T13:01:48.922+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T13:01:48.923+0000] {logging_mixin.py:190} INFO - Current task name:predict_and_store_result state:running start_date:2025-02-25 13:01:48.407121+00:00
+[2025-02-25T13:01:48.924+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir and current dag run status:running
+[2025-02-25T13:01:48.927+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T13:01:48.931+0000] {logging_mixin.py:190} INFO - 🔍 [1] Mengambil data dari XCom...
+[2025-02-25T13:01:48.950+0000] {logging_mixin.py:190} INFO - ✅ [2] Data diterima dari XCom. Jumlah baris: 7
+[2025-02-25T13:01:48.951+0000] {logging_mixin.py:190} INFO - 📊 Data contoh:
+[{'Humidity': 86.0, 'Moisture': 25.8}, {'Humidity': 86.0, 'Moisture': 25.8}, {'Humidity': 94.0, 'Moisture': 26.2}, {'Humidity': 88.0, 'Moisture': 26.2}, {'Humidity': 86.0, 'Moisture': 26.1}]
+[2025-02-25T13:01:48.962+0000] {logging_mixin.py:190} INFO - 🤖 [3] Melakukan prediksi dengan model RandomForest...
+[2025-02-25T13:01:48.995+0000] {logging_mixin.py:190} INFO - 📌 [4] Hasil prediksi:
+[5 5 5 5 5]
+[2025-02-25T13:01:48.997+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-25T13:01:49.013+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T13:01:49.015+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=percobaan_akhir, task_id=predict_and_store_result, run_id=manual__2025-02-25T13:01:33.050424+00:00, execution_date=20250225T130133, start_date=20250225T130148, end_date=20250225T130149
+[2025-02-25T13:01:49.053+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T13:01:49.055+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T13:01:49.057+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir queued_at:2025-02-25 13:01:33.087263+00:00
+[2025-02-25T13:01:49.062+0000] {logging_mixin.py:190} INFO - Task hostname:15e5b1e5ccc7 operator:PythonOperator
+[2025-02-25T13:01:49.119+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T13:01:49.161+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T13:01:49.165+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

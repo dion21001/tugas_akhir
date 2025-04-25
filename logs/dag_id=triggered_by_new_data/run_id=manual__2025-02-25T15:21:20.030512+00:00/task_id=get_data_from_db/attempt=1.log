@@ -1,0 +1,33 @@
+[2025-02-25T15:35:57.636+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T15:35:57.723+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: triggered_by_new_data.get_data_from_db manual__2025-02-25T15:21:20.030512+00:00 [queued]>
+[2025-02-25T15:35:57.775+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: triggered_by_new_data.get_data_from_db manual__2025-02-25T15:21:20.030512+00:00 [queued]>
+[2025-02-25T15:35:57.778+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T15:35:57.860+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-02-25 15:21:20.030512+00:00
+[2025-02-25T15:35:57.930+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=56047) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T15:35:57.930+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'triggered_by_new_data', 'get_data_from_db', 'manual__2025-02-25T15:21:20.030512+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpvffw24a0']
+[2025-02-25T15:35:57.941+0000] {standard_task_runner.py:105} INFO - Job 63: Subtask get_data_from_db
+[2025-02-25T15:35:57.937+0000] {standard_task_runner.py:72} INFO - Started process 56094 to run task
+[2025-02-25T15:35:58.177+0000] {task_command.py:467} INFO - Running <TaskInstance: triggered_by_new_data.get_data_from_db manual__2025-02-25T15:21:20.030512+00:00 [running]> on host 15e5b1e5ccc7
+[2025-02-25T15:35:58.456+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='triggered_by_new_data' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T15:21:20.030512+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T15:21:20.030512+00:00'
+[2025-02-25T15:35:58.463+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T15:35:58.465+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T15:35:58.469+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-02-25 15:35:57.725700+00:00
+[2025-02-25T15:35:58.471+0000] {logging_mixin.py:190} INFO - Dag name:triggered_by_new_data and current dag run status:running
+[2025-02-25T15:35:58.475+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T15:35:58.484+0000] {logging_mixin.py:190} INFO - 🔍 [1] Menghubungkan ke database MySQL...
+[2025-02-25T15:35:58.585+0000] {logging_mixin.py:190} INFO - 📊 Data yang diambil dari MySQL:
+   Humidity  Moisture
+0      88.0      25.8
+1      88.0      25.8
+2      88.0      25.8
+[2025-02-25T15:35:58.626+0000] {logging_mixin.py:190} INFO - ✅ Data berhasil disimpan ke XCom. Jumlah baris: 3
+[2025-02-25T15:35:58.627+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-25T15:35:58.671+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T15:35:58.673+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=triggered_by_new_data, task_id=get_data_from_db, run_id=manual__2025-02-25T15:21:20.030512+00:00, execution_date=20250225T152120, start_date=20250225T153557, end_date=20250225T153558
+[2025-02-25T15:35:58.728+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T15:35:58.730+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T15:35:58.735+0000] {logging_mixin.py:190} INFO - Dag name:triggered_by_new_data queued_at:2025-02-25 15:21:20.060721+00:00
+[2025-02-25T15:35:58.737+0000] {logging_mixin.py:190} INFO - Task hostname:15e5b1e5ccc7 operator:PythonOperator
+[2025-02-25T15:35:58.815+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T15:35:58.889+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T15:35:58.906+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

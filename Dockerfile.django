@@ -1,0 +1,20 @@
+# Gunakan Python 3.12 sebagai base image
+FROM python:3.12
+
+# Pastikan output Python tidak buffering
+ENV PYTHONUNBUFFERED=1
+
+# Tentukan working directory
+WORKDIR /app
+
+# Salin file requirements.txt ke dalam container
+COPY requirements_django.txt requirements.txt
+
+# Install dependencies dari requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Salin semua kode aplikasi ke dalam container
+COPY . .
+
+# Perintah default untuk menjalankan Django
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

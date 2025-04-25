@@ -1,0 +1,29 @@
+[2025-02-25T20:56:20.592+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T20:56:20.626+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: consume_1_and_2_with_dataset_expressions.consume_1_and_2_with_dataset_expressions manual__2025-02-25T20:56:16.359076+00:00 [queued]>
+[2025-02-25T20:56:20.651+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: consume_1_and_2_with_dataset_expressions.consume_1_and_2_with_dataset_expressions manual__2025-02-25T20:56:16.359076+00:00 [queued]>
+[2025-02-25T20:56:20.652+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-25T20:56:20.819+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): consume_1_and_2_with_dataset_expressions> on 2025-02-25 20:56:16.359076+00:00
+[2025-02-25T20:56:20.854+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'consume_1_and_2_with_dataset_expressions', 'consume_1_and_2_with_dataset_expressions', 'manual__2025-02-25T20:56:16.359076+00:00', '--job-id', '587', '--raw', '--subdir', '/home/airflow/.local/lib/python3.12/site-packages/airflow/example_dags/example_datasets.py', '--cfg-path', '/tmp/tmpmexhrcju']
+[2025-02-25T20:56:20.858+0000] {standard_task_runner.py:105} INFO - Job 587: Subtask consume_1_and_2_with_dataset_expressions
+[2025-02-25T20:56:20.860+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=32447) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T20:56:20.863+0000] {standard_task_runner.py:72} INFO - Started process 32468 to run task
+[2025-02-25T20:56:20.994+0000] {task_command.py:467} INFO - Running <TaskInstance: consume_1_and_2_with_dataset_expressions.consume_1_and_2_with_dataset_expressions manual__2025-02-25T20:56:16.359076+00:00 [running]> on host d22a487e6b55
+[2025-02-25T20:56:21.238+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='consume_1_and_2_with_dataset_expressions' AIRFLOW_CTX_TASK_ID='consume_1_and_2_with_dataset_expressions' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T20:56:16.359076+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T20:56:16.359076+00:00'
+[2025-02-25T20:56:21.242+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T20:56:21.243+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T20:56:21.245+0000] {logging_mixin.py:190} INFO - Current task name:consume_1_and_2_with_dataset_expressions state:running start_date:2025-02-25 20:56:20.628146+00:00
+[2025-02-25T20:56:21.247+0000] {logging_mixin.py:190} INFO - Dag name:consume_1_and_2_with_dataset_expressions and current dag run status:running
+[2025-02-25T20:56:21.250+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T20:56:21.255+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-02-25T20:56:21.257+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'sleep 5']
+[2025-02-25T20:56:21.283+0000] {subprocess.py:99} INFO - Output:
+[2025-02-25T20:56:26.300+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-02-25T20:56:26.420+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T20:56:26.422+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=consume_1_and_2_with_dataset_expressions, task_id=consume_1_and_2_with_dataset_expressions, run_id=manual__2025-02-25T20:56:16.359076+00:00, execution_date=20250225T205616, start_date=20250225T205620, end_date=20250225T205626
+[2025-02-25T20:56:26.504+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T20:56:26.505+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T20:56:26.508+0000] {logging_mixin.py:190} INFO - Dag name:consume_1_and_2_with_dataset_expressions queued_at:2025-02-25 20:56:16.786524+00:00
+[2025-02-25T20:56:26.509+0000] {logging_mixin.py:190} INFO - Task hostname:d22a487e6b55 operator:BashOperator
+[2025-02-25T20:56:26.555+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T20:56:26.612+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T20:56:26.618+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

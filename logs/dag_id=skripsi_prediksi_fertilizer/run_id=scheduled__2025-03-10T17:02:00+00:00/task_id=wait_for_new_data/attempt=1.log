@@ -1,0 +1,155 @@
+[2025-03-10T17:05:52.591+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-10T17:05:52.661+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_prediksi_fertilizer.wait_for_new_data scheduled__2025-03-10T17:02:00+00:00 [queued]>
+[2025-03-10T17:05:52.697+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_prediksi_fertilizer.wait_for_new_data scheduled__2025-03-10T17:02:00+00:00 [queued]>
+[2025-03-10T17:05:52.698+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-03-10T17:05:52.762+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-03-10 17:02:00+00:00
+[2025-03-10T17:05:52.808+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi_prediksi_fertilizer', 'wait_for_new_data', 'scheduled__2025-03-10T17:02:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpsyv7wsiu']
+[2025-03-10T17:05:52.817+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask wait_for_new_data
+[2025-03-10T17:05:52.831+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=16183) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-10T17:05:52.835+0000] {standard_task_runner.py:72} INFO - Started process 16281 to run task
+[2025-03-10T17:05:53.287+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi_prediksi_fertilizer.wait_for_new_data scheduled__2025-03-10T17:02:00+00:00 [running]> on host b493651eb2c9
+[2025-03-10T17:05:53.684+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi_prediksi_fertilizer' AIRFLOW_CTX_TASK_ID='wait_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-10T17:02:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-10T17:02:00+00:00'
+[2025-03-10T17:05:53.691+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-10T17:05:53.693+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-10T17:05:53.696+0000] {logging_mixin.py:190} INFO - Current task name:wait_for_new_data state:running start_date:2025-03-10 17:05:52.663684+00:00
+[2025-03-10T17:05:53.697+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_prediksi_fertilizer and current dag run status:running
+[2025-03-10T17:05:53.699+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-10T17:05:53.741+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-03-10T17:05:53.773+0000] {sql.py:101} INFO - Poking: 
+            SELECT COUNT(*) 
+            FROM tugas_akhir_sensordata s
+            WHERE s.timestamp >= NOW() - INTERVAL 5 MINUTE
+            AND NOT EXISTS (
+                SELECT 1 
+                FROM fertilizer_predictions f
+                WHERE f.id = s.id
+            )
+         (with parameters None)
+[2025-03-10T17:05:53.788+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-03-10T17:05:53.961+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sensors/base.py", line 306, in execute
+    raise e
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sensors/base.py", line 286, in execute
+    poke_return = self.poke(context)
+                  ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/sensors/sql.py", line 102, in poke
+    records = hook.get_records(self.sql, self.parameters)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 358, in get_records
+    return self.run(sql=sql, parameters=parameters, handler=fetch_all_handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 494, in run
+    with self._create_autocommit_connection(autocommit) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 618, in _create_autocommit_connection
+    with closing(self.get_conn()) as conn:
+                 ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/mysql/hooks/mysql.py", line 224, in get_conn
+    return MySQLdb.connect(**conn_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/connections.py", line 199, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2005, "Unknown server host 'mysql' (-2)")
+[2025-03-10T17:05:54.035+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-03-10T17:05:54.037+0000] {logging_mixin.py:190} INFO - Task start:2025-03-10 17:05:52.663684+00:00 end:2025-03-10 17:05:54.034268+00:00 duration:1.370584
+[2025-03-10T17:05:54.045+0000] {logging_mixin.py:190} INFO - Task:<Task(SqlSensor): wait_for_new_data> dag:<DAG: skripsi_prediksi_fertilizer> dagrun:<DagRun skripsi_prediksi_fertilizer @ 2025-03-10 17:02:00+00:00: scheduled__2025-03-10T17:02:00+00:00, state:running, queued_at: 2025-03-10 17:05:43.606750+00:00. externally triggered: False>
+[2025-03-10T17:05:54.049+0000] {logging_mixin.py:190} INFO - Failure caused by (2005, "Unknown server host 'mysql' (-2)")
+[2025-03-10T17:05:54.051+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=skripsi_prediksi_fertilizer, task_id=wait_for_new_data, run_id=scheduled__2025-03-10T17:02:00+00:00, execution_date=20250310T170200, start_date=20250310T170552, end_date=20250310T170554
+[2025-03-10T17:05:54.121+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-10T17:05:54.125+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 2 for task wait_for_new_data ((2005, "Unknown server host 'mysql' (-2)"); 16281)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sensors/base.py", line 306, in execute
+    raise e
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sensors/base.py", line 286, in execute
+    poke_return = self.poke(context)
+                  ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/sensors/sql.py", line 102, in poke
+    records = hook.get_records(self.sql, self.parameters)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 358, in get_records
+    return self.run(sql=sql, parameters=parameters, handler=fetch_all_handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 494, in run
+    with self._create_autocommit_connection(autocommit) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/common/sql/hooks/sql.py", line 618, in _create_autocommit_connection
+    with closing(self.get_conn()) as conn:
+                 ^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/mysql/hooks/mysql.py", line 224, in get_conn
+    return MySQLdb.connect(**conn_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/__init__.py", line 121, in Connect
+    return Connection(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/MySQLdb/connections.py", line 199, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2005, "Unknown server host 'mysql' (-2)")
+[2025-03-10T17:05:54.187+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-03-10T17:05:54.305+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-10T17:05:54.316+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,55 @@
+[2025-02-25T11:52:53.812+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T11:52:53.880+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T11:52:26.657582+00:00 [queued]>
+[2025-02-25T11:52:53.932+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T11:52:26.657582+00:00 [queued]>
+[2025-02-25T11:52:53.934+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T11:52:53.987+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): predict_and_store_result> on 2025-02-25 11:52:26.657582+00:00
+[2025-02-25T11:52:54.038+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=29574) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T11:52:54.041+0000] {standard_task_runner.py:72} INFO - Started process 29646 to run task
+[2025-02-25T11:52:54.033+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'percobaan_akhir', 'predict_and_store_result', 'manual__2025-02-25T11:52:26.657582+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpm0pexdvd']
+[2025-02-25T11:52:54.044+0000] {standard_task_runner.py:105} INFO - Job 13: Subtask predict_and_store_result
+[2025-02-25T11:52:54.240+0000] {task_command.py:467} INFO - Running <TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T11:52:26.657582+00:00 [running]> on host 15e5b1e5ccc7
+[2025-02-25T11:52:54.680+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='percobaan_akhir' AIRFLOW_CTX_TASK_ID='predict_and_store_result' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T11:52:26.657582+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T11:52:26.657582+00:00'
+[2025-02-25T11:52:54.693+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T11:52:54.695+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T11:52:54.699+0000] {logging_mixin.py:190} INFO - Current task name:predict_and_store_result state:running start_date:2025-02-25 11:52:53.882095+00:00
+[2025-02-25T11:52:54.703+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir and current dag run status:running
+[2025-02-25T11:52:54.706+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T11:52:54.710+0000] {logging_mixin.py:190} INFO - 🔍 [1] Mengambil data dari XCom...
+[2025-02-25T11:52:54.752+0000] {logging_mixin.py:190} INFO - ✅ [2] Data diterima dari XCom. Jumlah baris: 7
+[2025-02-25T11:52:54.754+0000] {logging_mixin.py:190} INFO - 📊 Data contoh:
+[{'Humidity': 86.0, 'Moisture': 25.8}, {'Humidity': 86.0, 'Moisture': 25.8}, {'Humidity': 94.0, 'Moisture': 26.2}, {'Humidity': 88.0, 'Moisture': 26.2}, {'Humidity': 86.0, 'Moisture': 26.1}]
+[2025-02-25T11:52:54.772+0000] {logging_mixin.py:190} INFO - 🔄 [3] Melakukan scaling pada data...
+[2025-02-25T11:52:54.806+0000] {logging_mixin.py:190} INFO - 🔢 Data setelah scaling:
+[[0.8        0.02      ]
+ [0.8        0.02      ]
+ [0.97777778 0.03      ]
+ [0.84444444 0.03      ]
+ [0.8        0.0275    ]]
+[2025-02-25T11:52:54.808+0000] {logging_mixin.py:190} INFO - 🔍 Bentuk data sebelum prediksi: (7, 2)
+[2025-02-25T11:52:54.832+0000] {logging_mixin.py:190} INFO - Model: "sequential_3"
+[2025-02-25T11:52:54.854+0000] {logging_mixin.py:190} INFO - ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ dense_9 (Dense)                 │ (None, 64)             │           192 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_10 (Dense)                │ (None, 32)             │         2,080 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_3           │ (None, 32)             │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_11 (Dense)                │ (None, 14)             │           462 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+[2025-02-25T11:52:54.858+0000] {logging_mixin.py:190} INFO -  Total params: 2,864 (11.19 KB)
+[2025-02-25T11:52:54.864+0000] {logging_mixin.py:190} INFO -  Trainable params: 2,798 (10.93 KB)
+[2025-02-25T11:52:54.868+0000] {logging_mixin.py:190} INFO -  Non-trainable params: 64 (256.00 B)
+[2025-02-25T11:52:54.871+0000] {logging_mixin.py:190} INFO -  Optimizer params: 2 (12.00 B)
+[2025-02-25T11:52:54.874+0000] {logging_mixin.py:190} INFO - 🤖 [4] Melakukan prediksi dengan model...
+[2025-02-25T13:57:24.786+0000] {job.py:229} INFO - Heartbeat recovered after 20.75 seconds
+[2025-02-25T13:57:30.322+0000] {job.py:229} INFO - Heartbeat recovered after 21.08 seconds
+[2025-02-25T15:58:07.659+0000] {job.py:229} INFO - Heartbeat recovered after 12.39 seconds
+[2025-02-25T16:00:05.937+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-02-25T16:00:06.336+0000] {process_utils.py:132} INFO - Sending 15 to group 29646. PIDs of all processes in the group: [29646]
+[2025-02-25T16:00:06.476+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 29646
+[2025-02-25T16:00:14.670+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-02-25T16:00:14.689+0000] {process_utils.py:132} INFO - Sending 15 to group 29646. PIDs of all processes in the group: [29646]
+[2025-02-25T16:00:14.710+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 29646

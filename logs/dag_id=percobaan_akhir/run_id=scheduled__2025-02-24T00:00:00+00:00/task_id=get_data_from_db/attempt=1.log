@@ -1,0 +1,163 @@
+[2025-02-25T08:59:51.097+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T08:59:51.140+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: percobaan_akhir.get_data_from_db scheduled__2025-02-24T00:00:00+00:00 [queued]>
+[2025-02-25T08:59:51.169+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: percobaan_akhir.get_data_from_db scheduled__2025-02-24T00:00:00+00:00 [queued]>
+[2025-02-25T08:59:51.172+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T08:59:51.226+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-02-24 00:00:00+00:00
+[2025-02-25T08:59:51.271+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'percobaan_akhir', 'get_data_from_db', 'scheduled__2025-02-24T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpaijm095z']
+[2025-02-25T08:59:51.280+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask get_data_from_db
+[2025-02-25T08:59:51.291+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=10038) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T08:59:51.297+0000] {standard_task_runner.py:72} INFO - Started process 10180 to run task
+[2025-02-25T08:59:51.416+0000] {task_command.py:467} INFO - Running <TaskInstance: percobaan_akhir.get_data_from_db scheduled__2025-02-24T00:00:00+00:00 [running]> on host 548bbaaea069
+[2025-02-25T08:59:52.066+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='percobaan_akhir' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-02-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-24T00:00:00+00:00'
+[2025-02-25T08:59:52.078+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T08:59:52.081+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T08:59:52.087+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-02-25 08:59:51.141193+00:00
+[2025-02-25T08:59:52.094+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir and current dag run status:running
+[2025-02-25T08:59:52.095+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T08:59:52.099+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/tugas_akhir.py", line 24, in get_data_from_mysql
+    engine = create_engine("mysql+pymysql://root:Pramuka1tugas_akhir")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 375, in warned
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 514, in create_engine
+    u = _url.make_url(url)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/url.py", line 738, in make_url
+    return _parse_url(name_or_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/url.py", line 794, in _parse_url
+    components["port"] = int(components["port"])
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'Pramuka1tugas_akhir'
+[2025-02-25T08:59:52.172+0000] {logging_mixin.py:190} INFO - Task instance in failure state
+[2025-02-25T08:59:52.174+0000] {logging_mixin.py:190} INFO - Task start:2025-02-25 08:59:51.141193+00:00 end:2025-02-25 08:59:52.171168+00:00 duration:1.029975
+[2025-02-25T08:59:52.180+0000] {logging_mixin.py:190} INFO - Task:<Task(PythonOperator): get_data_from_db> dag:<DAG: percobaan_akhir> dagrun:<DagRun percobaan_akhir @ 2025-02-24 00:00:00+00:00: scheduled__2025-02-24T00:00:00+00:00, state:running, queued_at: 2025-02-25 08:59:36.939597+00:00. externally triggered: False>
+[2025-02-25T08:59:52.183+0000] {logging_mixin.py:190} INFO - Failure caused by invalid literal for int() with base 10: 'Pramuka1tugas_akhir'
+[2025-02-25T08:59:52.188+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=percobaan_akhir, task_id=get_data_from_db, run_id=scheduled__2025-02-24T00:00:00+00:00, execution_date=20250224T000000, start_date=20250225T085951, end_date=20250225T085952
+[2025-02-25T08:59:52.307+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T08:59:52.314+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 3 for task get_data_from_db (invalid literal for int() with base 10: 'Pramuka1tugas_akhir'; 10180)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 422, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/tugas_akhir.py", line 24, in get_data_from_mysql
+    engine = create_engine("mysql+pymysql://root:Pramuka1tugas_akhir")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/util/deprecations.py", line 375, in warned
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 514, in create_engine
+    u = _url.make_url(url)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/url.py", line 738, in make_url
+    return _parse_url(name_or_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/sqlalchemy/engine/url.py", line 794, in _parse_url
+    components["port"] = int(components["port"])
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'Pramuka1tugas_akhir'
+[2025-02-25T08:59:52.394+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-02-25T08:59:52.558+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T08:59:52.565+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-02-25T11:07:10.736+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T11:07:10.795+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: percobaan_akhir.get_data_from_db scheduled__2025-02-24T00:00:00+00:00 [queued]>
+[2025-02-25T11:07:10.826+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: percobaan_akhir.get_data_from_db scheduled__2025-02-24T00:00:00+00:00 [queued]>
+[2025-02-25T11:07:10.828+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T11:07:10.880+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-02-24 00:00:00+00:00
+[2025-02-25T11:07:10.934+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=3107) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T11:07:10.938+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'percobaan_akhir', 'get_data_from_db', 'scheduled__2025-02-24T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpieu1ybjx']
+[2025-02-25T11:07:10.942+0000] {standard_task_runner.py:72} INFO - Started process 3320 to run task
+[2025-02-25T11:07:10.945+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask get_data_from_db
+[2025-02-25T11:07:11.157+0000] {task_command.py:467} INFO - Running <TaskInstance: percobaan_akhir.get_data_from_db scheduled__2025-02-24T00:00:00+00:00 [running]> on host 15e5b1e5ccc7
+[2025-02-25T11:07:11.514+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='percobaan_akhir' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-02-24T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-24T00:00:00+00:00'
+[2025-02-25T11:07:11.524+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T11:07:11.528+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T11:07:11.531+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-02-25 11:07:10.796278+00:00
+[2025-02-25T11:07:11.534+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir and current dag run status:running
+[2025-02-25T11:07:11.537+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T11:07:11.644+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-25T11:07:11.678+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T11:07:11.681+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=percobaan_akhir, task_id=get_data_from_db, run_id=scheduled__2025-02-24T00:00:00+00:00, execution_date=20250224T000000, start_date=20250225T110710, end_date=20250225T110711
+[2025-02-25T11:07:11.732+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T11:07:11.736+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T11:07:11.738+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir queued_at:2025-02-25 11:06:54.798608+00:00
+[2025-02-25T11:07:11.740+0000] {logging_mixin.py:190} INFO - Task hostname:15e5b1e5ccc7 operator:PythonOperator
+[2025-02-25T11:07:11.810+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T11:07:11.880+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T11:07:11.896+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

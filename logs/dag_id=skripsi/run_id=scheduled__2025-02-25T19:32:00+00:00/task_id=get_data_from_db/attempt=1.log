@@ -1,0 +1,31 @@
+[2025-02-25T19:33:08.229+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T19:33:08.308+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi.get_data_from_db scheduled__2025-02-25T19:32:00+00:00 [queued]>
+[2025-02-25T19:33:08.346+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi.get_data_from_db scheduled__2025-02-25T19:32:00+00:00 [queued]>
+[2025-02-25T19:33:08.348+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T19:33:08.396+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-02-25 19:32:00+00:00
+[2025-02-25T19:33:08.433+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=83851) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T19:33:08.431+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi', 'get_data_from_db', 'scheduled__2025-02-25T19:32:00+00:00', '--job-id', '363', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpqe6cujz3']
+[2025-02-25T19:33:08.436+0000] {standard_task_runner.py:105} INFO - Job 363: Subtask get_data_from_db
+[2025-02-25T19:33:08.435+0000] {standard_task_runner.py:72} INFO - Started process 83881 to run task
+[2025-02-25T19:33:08.559+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi.get_data_from_db scheduled__2025-02-25T19:32:00+00:00 [running]> on host d22a487e6b55
+[2025-02-25T19:33:08.822+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T19:32:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-25T19:32:00+00:00'
+[2025-02-25T19:33:08.826+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T19:33:08.828+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T19:33:08.829+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-02-25 19:33:08.309976+00:00
+[2025-02-25T19:33:08.830+0000] {logging_mixin.py:190} INFO - Dag name:skripsi and current dag run status:running
+[2025-02-25T19:33:08.832+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T19:33:08.835+0000] {logging_mixin.py:190} INFO - 🔍 [1] Menghubungkan ke database MySQL...
+[2025-02-25T19:33:08.899+0000] {logging_mixin.py:190} INFO - 📊 Data yang diambil dari MySQL:
+   Humidity  Moisture
+0      94.0      25.8
+[2025-02-25T19:33:08.931+0000] {logging_mixin.py:190} INFO - ✅ Data berhasil disimpan ke XCom. Jumlah baris: 1
+[2025-02-25T19:33:08.934+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-25T19:33:08.957+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T19:33:08.961+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=skripsi, task_id=get_data_from_db, run_id=scheduled__2025-02-25T19:32:00+00:00, execution_date=20250225T193200, start_date=20250225T193308, end_date=20250225T193308
+[2025-02-25T19:33:08.999+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T19:33:09.000+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T19:33:09.002+0000] {logging_mixin.py:190} INFO - Dag name:skripsi queued_at:2025-02-25 19:33:00.824212+00:00
+[2025-02-25T19:33:09.005+0000] {logging_mixin.py:190} INFO - Task hostname:d22a487e6b55 operator:PythonOperator
+[2025-02-25T19:33:09.042+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T19:33:09.104+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T19:33:09.119+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

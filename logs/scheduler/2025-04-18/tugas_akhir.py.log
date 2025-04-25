@@ -1,0 +1,67 @@
+[2025-04-18T05:56:20.794+0000] {processor.py:186} INFO - Started process (PID=169) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:56:20.807+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T05:56:20.830+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:56:20.828+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:56:21.156+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-18T05:56:33.211+0000] {logging_mixin.py:190} INFO - ✅ Model dan encoder berhasil dimuat.
+[2025-04-18T05:56:33.280+0000] {processor.py:925} INFO - DAG(s) 'perbaikan_skripsi' retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:56:33.455+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:56:33.445+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-18T05:56:35.282+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:56:35.281+0000] {dag.py:4180} INFO - Setting next_dagrun for perbaikan_skripsi to 2025-04-18 05:56:00+00:00, run_after=2025-04-18 05:58:00+00:00
+[2025-04-18T05:56:36.754+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 16.065 seconds
+[2025-04-18T05:57:11.911+0000] {processor.py:186} INFO - Started process (PID=491) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:57:11.914+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T05:57:11.924+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:57:11.923+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:57:12.018+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-18T05:57:13.867+0000] {logging_mixin.py:190} INFO - ✅ Model dan encoder berhasil dimuat.
+[2025-04-18T05:57:13.882+0000] {processor.py:925} INFO - DAG(s) 'perbaikan_skripsi' retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:57:13.926+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:57:13.925+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-18T05:57:13.989+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:57:13.989+0000] {dag.py:4180} INFO - Setting next_dagrun for perbaikan_skripsi to 2025-04-18 05:56:00+00:00, run_after=2025-04-18 05:58:00+00:00
+[2025-04-18T05:57:14.045+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 2.153 seconds
+[2025-04-18T05:57:44.218+0000] {processor.py:186} INFO - Started process (PID=796) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:57:44.221+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T05:57:44.227+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:57:44.226+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:57:44.287+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-18T05:57:46.053+0000] {logging_mixin.py:190} INFO - ✅ Model dan encoder berhasil dimuat.
+[2025-04-18T05:57:46.070+0000] {processor.py:925} INFO - DAG(s) 'perbaikan_skripsi' retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:57:46.164+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:57:46.162+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-18T05:57:46.230+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:57:46.230+0000] {dag.py:4180} INFO - Setting next_dagrun for perbaikan_skripsi to 2025-04-18 05:56:00+00:00, run_after=2025-04-18 05:58:00+00:00
+[2025-04-18T05:57:46.299+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 2.099 seconds
+[2025-04-18T05:58:16.648+0000] {processor.py:186} INFO - Started process (PID=1112) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:58:16.650+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T05:58:16.657+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:58:16.656+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:58:16.704+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-18T05:58:18.241+0000] {logging_mixin.py:190} INFO - ✅ Model dan encoder berhasil dimuat.
+[2025-04-18T05:58:18.256+0000] {processor.py:925} INFO - DAG(s) 'perbaikan_skripsi' retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:58:18.293+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:58:18.293+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-18T05:58:18.338+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:58:18.338+0000] {dag.py:4180} INFO - Setting next_dagrun for perbaikan_skripsi to 2025-04-18 05:58:00+00:00, run_after=2025-04-18 06:00:00+00:00
+[2025-04-18T05:58:18.384+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 1.747 seconds
+[2025-04-18T05:58:48.589+0000] {processor.py:186} INFO - Started process (PID=1410) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:58:48.591+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T05:58:48.598+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:58:48.597+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:58:48.654+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-18T05:58:50.323+0000] {logging_mixin.py:190} INFO - ✅ Model dan encoder berhasil dimuat.
+[2025-04-18T05:58:50.340+0000] {processor.py:925} INFO - DAG(s) 'perbaikan_skripsi' retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:58:50.389+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:58:50.388+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-18T05:58:50.469+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:58:50.469+0000] {dag.py:4180} INFO - Setting next_dagrun for perbaikan_skripsi to 2025-04-18 05:58:00+00:00, run_after=2025-04-18 06:00:00+00:00
+[2025-04-18T05:58:50.545+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 1.968 seconds
+[2025-04-18T05:59:31.754+0000] {processor.py:186} INFO - Started process (PID=1689) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:59:31.799+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T05:59:31.838+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:59:31.837+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:59:32.921+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-18T05:59:38.104+0000] {logging_mixin.py:190} INFO - ✅ Model dan encoder berhasil dimuat.
+[2025-04-18T05:59:38.296+0000] {processor.py:925} INFO - DAG(s) 'perbaikan_skripsi' retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T05:59:38.574+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:59:38.573+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-18T05:59:38.845+0000] {logging_mixin.py:190} INFO - [2025-04-18T05:59:38.844+0000] {dag.py:4180} INFO - Setting next_dagrun for perbaikan_skripsi to 2025-04-18 05:58:00+00:00, run_after=2025-04-18 06:00:00+00:00
+[2025-04-18T05:59:39.428+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 7.767 seconds
+[2025-04-18T06:00:21.666+0000] {processor.py:186} INFO - Started process (PID=1948) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T06:00:21.688+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T06:00:21.702+0000] {logging_mixin.py:190} INFO - [2025-04-18T06:00:21.701+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T06:00:21.766+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...
+[2025-04-18T06:00:23.490+0000] {logging_mixin.py:190} INFO - ✅ Model dan encoder berhasil dimuat.
+[2025-04-18T06:00:23.504+0000] {processor.py:925} INFO - DAG(s) 'perbaikan_skripsi' retrieved from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T06:00:23.539+0000] {logging_mixin.py:190} INFO - [2025-04-18T06:00:23.538+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-04-18T06:00:23.589+0000] {logging_mixin.py:190} INFO - [2025-04-18T06:00:23.588+0000] {dag.py:4180} INFO - Setting next_dagrun for perbaikan_skripsi to 2025-04-18 06:00:00+00:00, run_after=2025-04-18 06:02:00+00:00
+[2025-04-18T06:00:24.257+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/tugas_akhir.py took 2.618 seconds
+[2025-04-18T06:01:11.248+0000] {processor.py:186} INFO - Started process (PID=2254) to work on /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T06:01:11.262+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/tugas_akhir.py for tasks to queue
+[2025-04-18T06:01:11.282+0000] {logging_mixin.py:190} INFO - [2025-04-18T06:01:11.281+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/tugas_akhir.py
+[2025-04-18T06:01:11.503+0000] {logging_mixin.py:190} INFO - 🔍 Memuat model dan encoder...

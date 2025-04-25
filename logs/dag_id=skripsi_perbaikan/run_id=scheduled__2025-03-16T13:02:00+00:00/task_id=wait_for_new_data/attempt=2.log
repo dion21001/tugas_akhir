@@ -1,0 +1,4 @@
+[2025-04-07T14:48:32.812+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-07T14:48:33.710+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_perbaikan.wait_for_new_data scheduled__2025-03-16T13:02:00+00:00 [queued]>
+[2025-04-07T14:48:35.007+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_perbaikan.wait_for_new_data scheduled__2025-03-16T13:02:00+00:00 [queued]>
+[2025-04-07T14:48:37.207+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 5

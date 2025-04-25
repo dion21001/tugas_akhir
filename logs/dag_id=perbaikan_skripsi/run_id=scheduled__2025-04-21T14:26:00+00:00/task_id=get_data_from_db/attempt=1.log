@@ -1,0 +1,28 @@
+[2025-04-21T14:29:55.976+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-21T14:29:56.046+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: perbaikan_skripsi.get_data_from_db scheduled__2025-04-21T14:26:00+00:00 [queued]>
+[2025-04-21T14:29:56.095+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: perbaikan_skripsi.get_data_from_db scheduled__2025-04-21T14:26:00+00:00 [queued]>
+[2025-04-21T14:29:56.097+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2025-04-21T14:29:56.460+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-04-21 14:26:00+00:00
+[2025-04-21T14:29:56.771+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=15958) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-21T14:29:56.798+0000] {standard_task_runner.py:72} INFO - Started process 16075 to run task
+[2025-04-21T14:29:56.776+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'perbaikan_skripsi', 'get_data_from_db', 'scheduled__2025-04-21T14:26:00+00:00', '--job-id', '120', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp54ba21ry']
+[2025-04-21T14:29:56.807+0000] {standard_task_runner.py:105} INFO - Job 120: Subtask get_data_from_db
+[2025-04-21T14:29:57.278+0000] {task_command.py:467} INFO - Running <TaskInstance: perbaikan_skripsi.get_data_from_db scheduled__2025-04-21T14:26:00+00:00 [running]> on host 1daba33e39bb
+[2025-04-21T14:29:58.550+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='perbaikan_skripsi' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-04-21T14:26:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-21T14:26:00+00:00'
+[2025-04-21T14:29:58.559+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-21T14:29:58.562+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-21T14:29:58.568+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-04-21 14:29:56.047346+00:00
+[2025-04-21T14:29:58.571+0000] {logging_mixin.py:190} INFO - Dag name:perbaikan_skripsi and current dag run status:running
+[2025-04-21T14:29:58.576+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-21T14:29:58.581+0000] {logging_mixin.py:190} INFO - 🔍 [1] Mengambil data sensor terbaru yang lengkap dan belum diprediksi...
+[2025-04-21T14:29:58.660+0000] {logging_mixin.py:190} INFO - 📊 Data ditemukan: 2 baris
+[2025-04-21T14:29:58.869+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-21T14:29:58.949+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-21T14:29:58.957+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=perbaikan_skripsi, task_id=get_data_from_db, run_id=scheduled__2025-04-21T14:26:00+00:00, execution_date=20250421T142600, start_date=20250421T142956, end_date=20250421T142958
+[2025-04-21T14:30:00.441+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-21T14:30:00.442+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-21T14:30:00.443+0000] {logging_mixin.py:190} INFO - Dag name:perbaikan_skripsi queued_at:2025-04-21 14:27:00.193157+00:00
+[2025-04-21T14:30:00.444+0000] {logging_mixin.py:190} INFO - Task hostname:1daba33e39bb operator:PythonOperator
+[2025-04-21T14:30:00.535+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-21T14:30:00.630+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-21T14:30:00.892+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

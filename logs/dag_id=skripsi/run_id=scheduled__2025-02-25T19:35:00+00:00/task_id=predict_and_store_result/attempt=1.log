@@ -1,0 +1,36 @@
+[2025-02-25T19:45:18.505+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T19:45:18.697+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi.predict_and_store_result scheduled__2025-02-25T19:35:00+00:00 [queued]>
+[2025-02-25T19:45:18.832+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi.predict_and_store_result scheduled__2025-02-25T19:35:00+00:00 [queued]>
+[2025-02-25T19:45:18.838+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T19:45:19.042+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): predict_and_store_result> on 2025-02-25 19:35:00+00:00
+[2025-02-25T19:45:19.165+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=91004) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T19:45:19.178+0000] {standard_task_runner.py:72} INFO - Started process 91102 to run task
+[2025-02-25T19:45:19.160+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi', 'predict_and_store_result', 'scheduled__2025-02-25T19:35:00+00:00', '--job-id', '437', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp_8pwcj9f']
+[2025-02-25T19:45:19.189+0000] {standard_task_runner.py:105} INFO - Job 437: Subtask predict_and_store_result
+[2025-02-25T19:45:19.708+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi.predict_and_store_result scheduled__2025-02-25T19:35:00+00:00 [running]> on host d22a487e6b55
+[2025-02-25T19:45:20.460+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi' AIRFLOW_CTX_TASK_ID='predict_and_store_result' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T19:35:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-25T19:35:00+00:00'
+[2025-02-25T19:45:20.471+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T19:45:20.476+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T19:45:20.481+0000] {logging_mixin.py:190} INFO - Current task name:predict_and_store_result state:running start_date:2025-02-25 19:45:18.708613+00:00
+[2025-02-25T19:45:20.483+0000] {logging_mixin.py:190} INFO - Dag name:skripsi and current dag run status:running
+[2025-02-25T19:45:20.487+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T19:45:20.492+0000] {logging_mixin.py:190} INFO - 🔍 [1] Mengambil data dari XCom...
+[2025-02-25T19:45:20.550+0000] {logging_mixin.py:190} INFO - ✅ [2] Data diterima dari XCom. Jumlah baris: 1
+[2025-02-25T19:45:20.553+0000] {logging_mixin.py:190} INFO - 📊 Data contoh:
+[{'Humidity': 86.0, 'Moisture': 25.8}]
+[2025-02-25T19:45:20.589+0000] {logging_mixin.py:190} INFO - 🤖 [3] Melakukan prediksi dengan model RandomForest...
+[2025-02-25T19:45:20.899+0000] {logging_mixin.py:190} INFO - 📌 [4] Hasil prediksi:
+   Humidity  Moisture  Predicted_Fertilizer
+0      86.0      25.8                     5
+[2025-02-25T19:45:20.901+0000] {logging_mixin.py:190} INFO - 💾 [5] Menyimpan hasil prediksi ke database...
+[2025-02-25T19:45:21.056+0000] {logging_mixin.py:190} INFO - ✅ Hasil prediksi berhasil disimpan ke database!
+[2025-02-25T19:45:21.059+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-25T19:45:21.104+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T19:45:21.111+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=skripsi, task_id=predict_and_store_result, run_id=scheduled__2025-02-25T19:35:00+00:00, execution_date=20250225T193500, start_date=20250225T194518, end_date=20250225T194521
+[2025-02-25T19:45:22.206+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T19:45:22.214+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T19:45:22.233+0000] {logging_mixin.py:190} INFO - Dag name:skripsi queued_at:2025-02-25 19:36:00.813299+00:00
+[2025-02-25T19:45:22.239+0000] {logging_mixin.py:190} INFO - Task hostname:d22a487e6b55 operator:PythonOperator
+[2025-02-25T19:45:22.373+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T19:45:22.600+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T19:45:22.613+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

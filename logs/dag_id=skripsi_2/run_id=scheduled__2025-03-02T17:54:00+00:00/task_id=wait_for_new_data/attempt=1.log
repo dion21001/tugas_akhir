@@ -1,0 +1,44 @@
+[2025-03-02T17:56:04.915+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-02T17:56:04.946+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_2.wait_for_new_data scheduled__2025-03-02T17:54:00+00:00 [queued]>
+[2025-03-02T17:56:04.979+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_2.wait_for_new_data scheduled__2025-03-02T17:54:00+00:00 [queued]>
+[2025-03-02T17:56:04.982+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-03-02T17:56:05.031+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-03-02 17:54:00+00:00
+[2025-03-02T17:56:05.064+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=15210) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-02T17:56:05.063+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi_2', 'wait_for_new_data', 'scheduled__2025-03-02T17:54:00+00:00', '--job-id', '19616', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpm3oo3slb']
+[2025-03-02T17:56:05.071+0000] {standard_task_runner.py:105} INFO - Job 19616: Subtask wait_for_new_data
+[2025-03-02T17:56:05.068+0000] {standard_task_runner.py:72} INFO - Started process 15262 to run task
+[2025-03-02T17:56:05.193+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi_2.wait_for_new_data scheduled__2025-03-02T17:54:00+00:00 [running]> on host ef7692401a0a
+[2025-03-02T17:56:05.524+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi_2' AIRFLOW_CTX_TASK_ID='wait_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-02T17:54:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-02T17:54:00+00:00'
+[2025-03-02T17:56:05.528+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-02T17:56:05.530+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-02T17:56:05.531+0000] {logging_mixin.py:190} INFO - Current task name:wait_for_new_data state:running start_date:2025-03-02 17:56:04.947830+00:00
+[2025-03-02T17:56:05.533+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_2 and current dag run status:running
+[2025-03-02T17:56:05.534+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-02T17:56:05.561+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-03-02T17:56:05.567+0000] {sql.py:101} INFO - Poking: 
+            SELECT COUNT(*) 
+            FROM tugas_akhir_sensordata s
+            WHERE s.timestamp >= NOW() - INTERVAL 5 MINUTE
+            AND NOT EXISTS (
+                SELECT 1 
+                FROM fertilizer_predictions f
+                WHERE f.id = s.id
+            )
+         (with parameters None)
+[2025-03-02T17:56:05.576+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-03-02T17:56:05.586+0000] {sql.py:553} INFO - Running statement: 
+            SELECT COUNT(*) 
+            FROM tugas_akhir_sensordata s
+            WHERE s.timestamp >= NOW() - INTERVAL 5 MINUTE
+            AND NOT EXISTS (
+                SELECT 1 
+                FROM fertilizer_predictions f
+                WHERE f.id = s.id
+            )
+        , parameters: None
+[2025-03-02T17:56:05.588+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-03-02T17:56:05.625+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-03-02T17:56:05.626+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-02T17:56:05.673+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-02T17:56:05.715+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-02T17:56:05.718+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,35 @@
+[2025-02-27T15:06:36.473+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-27T15:06:36.541+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_akhir_perbaikan.get_data_from_db scheduled__2025-02-27T14:54:00+00:00 [queued]>
+[2025-02-27T15:06:36.583+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_akhir_perbaikan.get_data_from_db scheduled__2025-02-27T14:54:00+00:00 [queued]>
+[2025-02-27T15:06:36.593+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-27T15:06:36.698+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-02-27 14:54:00+00:00
+[2025-02-27T15:06:36.760+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=62432) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-27T15:06:36.759+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi_akhir_perbaikan', 'get_data_from_db', 'scheduled__2025-02-27T14:54:00+00:00', '--job-id', '58', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpdgk8mipz']
+[2025-02-27T15:06:36.777+0000] {standard_task_runner.py:105} INFO - Job 58: Subtask get_data_from_db
+[2025-02-27T15:06:36.772+0000] {standard_task_runner.py:72} INFO - Started process 62518 to run task
+[2025-02-27T15:06:37.250+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi_akhir_perbaikan.get_data_from_db scheduled__2025-02-27T14:54:00+00:00 [running]> on host 75f595111fc8
+[2025-02-27T15:06:37.696+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi_akhir_perbaikan' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-02-27T14:54:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-27T14:54:00+00:00'
+[2025-02-27T15:06:37.702+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-27T15:06:37.708+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-27T15:06:37.718+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-02-27 15:06:36.543117+00:00
+[2025-02-27T15:06:37.723+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_akhir_perbaikan and current dag run status:running
+[2025-02-27T15:06:37.726+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-27T15:06:37.731+0000] {logging_mixin.py:190} INFO - 🔍 [1] Menghubungkan ke database MySQL...
+[2025-02-27T15:06:37.855+0000] {logging_mixin.py:190} INFO - 📊 Data yang diambil dari MySQL:
+   Temperature  Humidity  Moisture_level
+0         25.3      88.0               0
+1         27.1      90.0               0
+2         27.6      89.0               0
+3         27.6      79.0               0
+4         27.1      79.0               0
+[2025-02-27T15:06:37.913+0000] {logging_mixin.py:190} INFO - ✅ Data berhasil disimpan ke XCom. Jumlah baris: 12
+[2025-02-27T15:06:37.916+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-27T15:06:37.969+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-27T15:06:37.978+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=skripsi_akhir_perbaikan, task_id=get_data_from_db, run_id=scheduled__2025-02-27T14:54:00+00:00, execution_date=20250227T145400, start_date=20250227T150636, end_date=20250227T150637
+[2025-02-27T15:06:38.082+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-27T15:06:38.086+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-27T15:06:38.093+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_akhir_perbaikan queued_at:2025-02-27 14:56:00.522477+00:00
+[2025-02-27T15:06:38.097+0000] {logging_mixin.py:190} INFO - Task hostname:75f595111fc8 operator:PythonOperator
+[2025-02-27T15:06:38.152+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-27T15:06:38.416+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-27T15:06:38.446+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

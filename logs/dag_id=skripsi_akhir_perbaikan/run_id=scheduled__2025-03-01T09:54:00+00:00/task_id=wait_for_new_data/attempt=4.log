@@ -1,0 +1,44 @@
+[2025-03-01T09:59:18.243+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-01T09:59:18.282+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_akhir_perbaikan.wait_for_new_data scheduled__2025-03-01T09:54:00+00:00 [queued]>
+[2025-03-01T09:59:18.326+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_akhir_perbaikan.wait_for_new_data scheduled__2025-03-01T09:54:00+00:00 [queued]>
+[2025-03-01T09:59:18.328+0000] {taskinstance.py:2866} INFO - Starting attempt 4 of 6
+[2025-03-01T09:59:18.412+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-03-01 09:54:00+00:00
+[2025-03-01T09:59:18.439+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=91268) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-01T09:59:18.442+0000] {standard_task_runner.py:72} INFO - Started process 91321 to run task
+[2025-03-01T09:59:18.445+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi_akhir_perbaikan', 'wait_for_new_data', 'scheduled__2025-03-01T09:54:00+00:00', '--job-id', '11894', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpf1txe8au']
+[2025-03-01T09:59:18.451+0000] {standard_task_runner.py:105} INFO - Job 11894: Subtask wait_for_new_data
+[2025-03-01T09:59:18.579+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi_akhir_perbaikan.wait_for_new_data scheduled__2025-03-01T09:54:00+00:00 [running]> on host 75f595111fc8
+[2025-03-01T09:59:18.809+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi_akhir_perbaikan' AIRFLOW_CTX_TASK_ID='wait_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-01T09:54:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-01T09:54:00+00:00'
+[2025-03-01T09:59:18.814+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-01T09:59:18.818+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-01T09:59:18.821+0000] {logging_mixin.py:190} INFO - Current task name:wait_for_new_data state:running start_date:2025-03-01 09:59:18.286269+00:00
+[2025-03-01T09:59:18.822+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_akhir_perbaikan and current dag run status:running
+[2025-03-01T09:59:18.824+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-01T09:59:18.862+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-03-01T09:59:18.871+0000] {sql.py:101} INFO - Poking: 
+        SELECT COUNT(*) 
+        FROM tugas_akhir_sensordata s
+        WHERE s.timestamp >= NOW() - INTERVAL 5 MINUTE
+        AND NOT EXISTS (
+            SELECT 1 
+            FROM fertilizer_predictions f
+            WHERE CAST(f.id AS SIGNED) = s.id  -- Menggunakan SIGNED di sini
+        )
+     (with parameters None)
+[2025-03-01T09:59:18.893+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-03-01T09:59:18.905+0000] {sql.py:553} INFO - Running statement: 
+        SELECT COUNT(*) 
+        FROM tugas_akhir_sensordata s
+        WHERE s.timestamp >= NOW() - INTERVAL 5 MINUTE
+        AND NOT EXISTS (
+            SELECT 1 
+            FROM fertilizer_predictions f
+            WHERE CAST(f.id AS SIGNED) = s.id  -- Menggunakan SIGNED di sini
+        )
+    , parameters: None
+[2025-03-01T09:59:18.908+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-03-01T09:59:18.962+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-03-01T09:59:18.965+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-01T09:59:19.011+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-01T09:59:19.102+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-01T09:59:19.108+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

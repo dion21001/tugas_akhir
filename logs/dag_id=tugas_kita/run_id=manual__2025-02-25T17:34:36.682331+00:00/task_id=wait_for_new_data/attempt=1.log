@@ -1,0 +1,61 @@
+[2025-02-25T17:34:42.941+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T17:34:43.003+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: tugas_kita.wait_for_new_data manual__2025-02-25T17:34:36.682331+00:00 [queued]>
+[2025-02-25T17:34:43.040+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: tugas_kita.wait_for_new_data manual__2025-02-25T17:34:36.682331+00:00 [queued]>
+[2025-02-25T17:34:43.042+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T17:34:43.083+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-02-25 17:34:36.682331+00:00
+[2025-02-25T17:34:43.108+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'tugas_kita', 'wait_for_new_data', 'manual__2025-02-25T17:34:36.682331+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp0a_wy3kj']
+[2025-02-25T17:34:43.115+0000] {standard_task_runner.py:105} INFO - Job 24: Subtask wait_for_new_data
+[2025-02-25T17:34:43.119+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=15160) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T17:34:43.121+0000] {standard_task_runner.py:72} INFO - Started process 15213 to run task
+[2025-02-25T17:34:43.218+0000] {task_command.py:467} INFO - Running <TaskInstance: tugas_kita.wait_for_new_data manual__2025-02-25T17:34:36.682331+00:00 [running]> on host d22a487e6b55
+[2025-02-25T17:34:43.401+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='tugas_kita' AIRFLOW_CTX_TASK_ID='wait_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T17:34:36.682331+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T17:34:36.682331+00:00'
+[2025-02-25T17:34:43.408+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T17:34:43.410+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T17:34:43.412+0000] {logging_mixin.py:190} INFO - Current task name:wait_for_new_data state:running start_date:2025-02-25 17:34:43.006954+00:00
+[2025-02-25T17:34:43.414+0000] {logging_mixin.py:190} INFO - Dag name:tugas_kita and current dag run status:running
+[2025-02-25T17:34:43.415+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T17:34:43.433+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:34:43.442+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T17:34:43.453+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:34:43.463+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T17:34:43.466+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T17:35:43.490+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:35:43.491+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T17:35:43.513+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:35:43.521+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T17:35:43.523+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T17:36:43.553+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:36:43.557+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T17:36:43.580+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:36:43.587+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T17:36:43.593+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T17:37:43.604+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:37:43.605+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T17:37:43.616+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:37:43.621+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T17:37:43.624+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T17:38:43.639+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:38:43.640+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T17:38:43.652+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:38:43.656+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T17:38:43.658+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T17:39:43.690+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:39:43.722+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T17:39:43.803+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:39:43.822+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T17:39:43.834+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T17:40:43.847+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:40:43.848+0000] {sql.py:101} INFO - Poking: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE (with parameters None)
+[2025-02-25T17:40:43.857+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-02-25T17:40:43.862+0000] {sql.py:553} INFO - Running statement: SELECT COUNT(*) FROM tugas_akhir_sensordata WHERE timestamp >= NOW() - INTERVAL 5 MINUTE, parameters: None
+[2025-02-25T17:40:43.864+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-02-25T17:40:43.866+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-02-25T17:40:43.880+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T17:40:43.882+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=tugas_kita, task_id=wait_for_new_data, run_id=manual__2025-02-25T17:34:36.682331+00:00, execution_date=20250225T173436, start_date=20250225T173443, end_date=20250225T174043
+[2025-02-25T17:40:43.907+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T17:40:43.908+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T17:40:43.910+0000] {logging_mixin.py:190} INFO - Dag name:tugas_kita queued_at:2025-02-25 17:34:36.721068+00:00
+[2025-02-25T17:40:43.912+0000] {logging_mixin.py:190} INFO - Task hostname:d22a487e6b55 operator:SqlSensor
+[2025-02-25T17:40:43.942+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T17:40:44.013+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-25T17:40:44.024+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

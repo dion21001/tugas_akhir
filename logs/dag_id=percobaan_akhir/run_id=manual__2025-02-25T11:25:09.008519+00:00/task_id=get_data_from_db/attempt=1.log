@@ -1,0 +1,34 @@
+[2025-02-25T11:25:20.097+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T11:25:20.269+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: percobaan_akhir.get_data_from_db manual__2025-02-25T11:25:09.008519+00:00 [queued]>
+[2025-02-25T11:25:20.334+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: percobaan_akhir.get_data_from_db manual__2025-02-25T11:25:09.008519+00:00 [queued]>
+[2025-02-25T11:25:20.336+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T11:25:20.448+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-02-25 11:25:09.008519+00:00
+[2025-02-25T11:25:20.507+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'percobaan_akhir', 'get_data_from_db', 'manual__2025-02-25T11:25:09.008519+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp4vcfu3rm']
+[2025-02-25T11:25:20.517+0000] {standard_task_runner.py:105} INFO - Job 6: Subtask get_data_from_db
+[2025-02-25T11:25:20.525+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=13755) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T11:25:20.529+0000] {standard_task_runner.py:72} INFO - Started process 13807 to run task
+[2025-02-25T11:25:20.797+0000] {task_command.py:467} INFO - Running <TaskInstance: percobaan_akhir.get_data_from_db manual__2025-02-25T11:25:09.008519+00:00 [running]> on host 15e5b1e5ccc7
+[2025-02-25T11:25:21.056+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='percobaan_akhir' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T11:25:09.008519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T11:25:09.008519+00:00'
+[2025-02-25T11:25:21.062+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T11:25:21.066+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T11:25:21.068+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-02-25 11:25:20.278074+00:00
+[2025-02-25T11:25:21.071+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir and current dag run status:running
+[2025-02-25T11:25:21.073+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T11:25:21.080+0000] {logging_mixin.py:190} INFO - 🔍 [1] Menghubungkan ke database MySQL...
+[2025-02-25T11:25:21.214+0000] {logging_mixin.py:190} INFO - 📊 Data yang diambil dari MySQL:
+   Humidity  Moisture
+0      86.0      25.8
+1      86.0      25.8
+2      94.0      26.2
+3      88.0      26.2
+4      86.0      26.1
+[2025-02-25T11:25:21.256+0000] {logging_mixin.py:190} INFO - ✅ Data berhasil disimpan ke XCom. Jumlah baris: 7
+[2025-02-25T11:25:21.259+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-25T11:25:21.282+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-25T11:25:21.283+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=percobaan_akhir, task_id=get_data_from_db, run_id=manual__2025-02-25T11:25:09.008519+00:00, execution_date=20250225T112509, start_date=20250225T112520, end_date=20250225T112521
+[2025-02-25T11:25:21.308+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-02-25T11:25:21.310+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-02-25T11:25:21.312+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir queued_at:2025-02-25 11:25:09.049633+00:00
+[2025-02-25T11:25:21.313+0000] {logging_mixin.py:190} INFO - Task hostname:15e5b1e5ccc7 operator:PythonOperator
+[2025-02-25T11:25:21.380+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-25T11:25:21.419+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

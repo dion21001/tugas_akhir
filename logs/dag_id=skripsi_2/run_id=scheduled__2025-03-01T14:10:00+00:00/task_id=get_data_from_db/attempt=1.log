@@ -1,0 +1,31 @@
+[2025-03-01T14:12:14.519+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-03-01T14:12:14.593+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: skripsi_2.get_data_from_db scheduled__2025-03-01T14:10:00+00:00 [queued]>
+[2025-03-01T14:12:14.619+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: skripsi_2.get_data_from_db scheduled__2025-03-01T14:10:00+00:00 [queued]>
+[2025-03-01T14:12:14.620+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-03-01T14:12:14.656+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): get_data_from_db> on 2025-03-01 14:10:00+00:00
+[2025-03-01T14:12:14.681+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=86114) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-03-01T14:12:14.681+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'skripsi_2', 'get_data_from_db', 'scheduled__2025-03-01T14:10:00+00:00', '--job-id', '12507', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpfwr4sd5d']
+[2025-03-01T14:12:14.684+0000] {standard_task_runner.py:72} INFO - Started process 86152 to run task
+[2025-03-01T14:12:14.685+0000] {standard_task_runner.py:105} INFO - Job 12507: Subtask get_data_from_db
+[2025-03-01T14:12:14.798+0000] {task_command.py:467} INFO - Running <TaskInstance: skripsi_2.get_data_from_db scheduled__2025-03-01T14:10:00+00:00 [running]> on host ef7692401a0a
+[2025-03-01T14:12:15.038+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='skripsi_2' AIRFLOW_CTX_TASK_ID='get_data_from_db' AIRFLOW_CTX_EXECUTION_DATE='2025-03-01T14:10:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-01T14:10:00+00:00'
+[2025-03-01T14:12:15.043+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-03-01T14:12:15.046+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-03-01T14:12:15.047+0000] {logging_mixin.py:190} INFO - Current task name:get_data_from_db state:running start_date:2025-03-01 14:12:14.594605+00:00
+[2025-03-01T14:12:15.048+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_2 and current dag run status:running
+[2025-03-01T14:12:15.051+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-03-01T14:12:15.053+0000] {logging_mixin.py:190} INFO - 🔍 [1] Menghubungkan ke database MySQL...
+[2025-03-01T14:12:15.109+0000] {logging_mixin.py:190} INFO - 📊 Data yang diambil dari MySQL:
+   Temperature  Humidity  Moisture
+0         26.2      80.0         1
+[2025-03-01T14:12:15.143+0000] {logging_mixin.py:190} INFO - ✅ Data berhasil disimpan ke XCom. Jumlah baris: 1
+[2025-03-01T14:12:15.145+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-03-01T14:12:15.168+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-03-01T14:12:15.170+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=skripsi_2, task_id=get_data_from_db, run_id=scheduled__2025-03-01T14:10:00+00:00, execution_date=20250301T141000, start_date=20250301T141214, end_date=20250301T141215
+[2025-03-01T14:12:15.200+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-03-01T14:12:15.201+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-03-01T14:12:15.204+0000] {logging_mixin.py:190} INFO - Dag name:skripsi_2 queued_at:2025-03-01 14:12:00.909689+00:00
+[2025-03-01T14:12:15.206+0000] {logging_mixin.py:190} INFO - Task hostname:ef7692401a0a operator:PythonOperator
+[2025-03-01T14:12:15.242+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-03-01T14:12:15.297+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-01T14:12:15.314+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,52 @@
+[2025-04-22T04:24:15.174+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-22T04:24:15.210+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: perbaikan_skripsi.wait_for_new_data scheduled__2025-04-22T04:22:00+00:00 [queued]>
+[2025-04-22T04:24:15.236+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: perbaikan_skripsi.wait_for_new_data scheduled__2025-04-22T04:22:00+00:00 [queued]>
+[2025-04-22T04:24:15.237+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 4
+[2025-04-22T04:24:15.280+0000] {taskinstance.py:2889} INFO - Executing <Task(SqlSensor): wait_for_new_data> on 2025-04-22 04:22:00+00:00
+[2025-04-22T04:24:15.312+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=15439) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-22T04:24:15.318+0000] {standard_task_runner.py:72} INFO - Started process 15522 to run task
+[2025-04-22T04:24:15.318+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'perbaikan_skripsi', 'wait_for_new_data', 'scheduled__2025-04-22T04:22:00+00:00', '--job-id', '3292', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmpd07npw0p']
+[2025-04-22T04:24:15.324+0000] {standard_task_runner.py:105} INFO - Job 3292: Subtask wait_for_new_data
+[2025-04-22T04:24:15.535+0000] {task_command.py:467} INFO - Running <TaskInstance: perbaikan_skripsi.wait_for_new_data scheduled__2025-04-22T04:22:00+00:00 [running]> on host d0938d3cd7ee
+[2025-04-22T04:24:15.945+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='perbaikan_skripsi' AIRFLOW_CTX_TASK_ID='wait_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2025-04-22T04:22:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-22T04:22:00+00:00'
+[2025-04-22T04:24:15.949+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-22T04:24:15.950+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-22T04:24:15.952+0000] {logging_mixin.py:190} INFO - Current task name:wait_for_new_data state:running start_date:2025-04-22 04:24:15.211994+00:00
+[2025-04-22T04:24:15.953+0000] {logging_mixin.py:190} INFO - Dag name:perbaikan_skripsi and current dag run status:running
+[2025-04-22T04:24:15.954+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-22T04:24:15.989+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-04-22T04:24:15.997+0000] {sql.py:101} INFO - Poking: 
+            SELECT COUNT(*) 
+            FROM tugas_akhir_sensordata s
+            WHERE s.timestamp >= NOW() - INTERVAL 3 MINUTE
+            AND s.soil_type IS NOT NULL
+            AND s.crop_type IS NOT NULL
+            AND NOT EXISTS (
+                SELECT 1 
+                FROM fertilizer_predictions f
+                WHERE f.sensor_data_id = s.id
+            )
+         (with parameters None)
+[2025-04-22T04:24:16.008+0000] {base.py:84} INFO - Retrieving connection 'mysql_default'
+[2025-04-22T04:24:16.019+0000] {sql.py:553} INFO - Running statement: 
+            SELECT COUNT(*) 
+            FROM tugas_akhir_sensordata s
+            WHERE s.timestamp >= NOW() - INTERVAL 3 MINUTE
+            AND s.soil_type IS NOT NULL
+            AND s.crop_type IS NOT NULL
+            AND NOT EXISTS (
+                SELECT 1 
+                FROM fertilizer_predictions f
+                WHERE f.sensor_data_id = s.id
+            )
+        , parameters: None
+[2025-04-22T04:24:16.021+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-22T04:24:16.023+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-04-22T04:24:16.039+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-22T04:24:16.042+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=perbaikan_skripsi, task_id=wait_for_new_data, run_id=scheduled__2025-04-22T04:22:00+00:00, execution_date=20250422T042200, start_date=20250422T042415, end_date=20250422T042416
+[2025-04-22T04:24:16.100+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-22T04:24:16.103+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-22T04:24:16.105+0000] {logging_mixin.py:190} INFO - Dag name:perbaikan_skripsi queued_at:2025-04-22 04:23:01.091468+00:00
+[2025-04-22T04:24:16.105+0000] {logging_mixin.py:190} INFO - Task hostname:d0938d3cd7ee operator:SqlSensor
+[2025-04-22T04:24:16.161+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-22T04:24:16.198+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

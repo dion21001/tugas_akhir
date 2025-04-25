@@ -1,0 +1,43 @@
+[2025-04-08T05:45:21.984+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-08T05:45:22.011+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: perbaikan_skripsi.predict_and_store_result scheduled__2025-04-08T05:42:00+00:00 [queued]>
+[2025-04-08T05:45:22.031+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: perbaikan_skripsi.predict_and_store_result scheduled__2025-04-08T05:42:00+00:00 [queued]>
+[2025-04-08T05:45:22.032+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 4
+[2025-04-08T05:45:22.078+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): predict_and_store_result> on 2025-04-08 05:42:00+00:00
+[2025-04-08T05:45:22.102+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=43338) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-04-08T05:45:22.101+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'perbaikan_skripsi', 'predict_and_store_result', 'scheduled__2025-04-08T05:42:00+00:00', '--job-id', '3773', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp9uz15vsk']
+[2025-04-08T05:45:22.104+0000] {standard_task_runner.py:72} INFO - Started process 43347 to run task
+[2025-04-08T05:45:22.106+0000] {standard_task_runner.py:105} INFO - Job 3773: Subtask predict_and_store_result
+[2025-04-08T05:45:22.207+0000] {task_command.py:467} INFO - Running <TaskInstance: perbaikan_skripsi.predict_and_store_result scheduled__2025-04-08T05:42:00+00:00 [running]> on host a9576c91091e
+[2025-04-08T05:45:22.430+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='perbaikan_skripsi' AIRFLOW_CTX_TASK_ID='predict_and_store_result' AIRFLOW_CTX_EXECUTION_DATE='2025-04-08T05:42:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-08T05:42:00+00:00'
+[2025-04-08T05:45:22.433+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-04-08T05:45:22.436+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-04-08T05:45:22.438+0000] {logging_mixin.py:190} INFO - Current task name:predict_and_store_result state:running start_date:2025-04-08 05:45:22.012705+00:00
+[2025-04-08T05:45:22.439+0000] {logging_mixin.py:190} INFO - Dag name:perbaikan_skripsi and current dag run status:running
+[2025-04-08T05:45:22.440+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-08T05:45:22.442+0000] {logging_mixin.py:190} INFO - 🔍 [2] Memproses data dan melakukan prediksi...
+[2025-04-08T05:45:22.515+0000] {logging_mixin.py:190} INFO - ✅ Data siap diproses: 2 baris
+    id  Temperature  Humidity  ...  nitrogen phosphorous potassium
+0  725         29.8      50.0  ...       0.0         0.0       0.0
+1  726         29.4      49.0  ...       0.0         0.0       0.0
+
+[2 rows x 9 columns]
+[2025-04-08T05:45:22.516+0000] {logging_mixin.py:190} INFO - 📝 Menyesuaikan nama kolom dengan model training...
+[2025-04-08T05:45:22.518+0000] {logging_mixin.py:190} INFO - 🔧 Melakukan encoding kategori Soil_Type dan Crop_Type...
+[2025-04-08T05:45:22.524+0000] {logging_mixin.py:190} INFO - 🧠 Menyiapkan fitur untuk prediksi...
+[2025-04-08T05:45:22.527+0000] {logging_mixin.py:190} INFO - 🤖 Menjalankan model prediksi...
+[2025-04-08T05:45:22.553+0000] {logging_mixin.py:190} INFO - ✅ Prediksi selesai:
+    id predicted_fertilizer
+0  725                20-20
+1  726                20-20
+[2025-04-08T05:45:22.554+0000] {logging_mixin.py:190} INFO - 💾 Menyimpan hasil ke tabel fertilizer_predictions...
+[2025-04-08T05:45:22.600+0000] {logging_mixin.py:190} INFO - ✅ Hasil prediksi berhasil disimpan.
+[2025-04-08T05:45:22.601+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-08T05:45:22.617+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-08T05:45:22.619+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=perbaikan_skripsi, task_id=predict_and_store_result, run_id=scheduled__2025-04-08T05:42:00+00:00, execution_date=20250408T054200, start_date=20250408T054522, end_date=20250408T054522
+[2025-04-08T05:45:22.640+0000] {logging_mixin.py:190} INFO - Task instance in success state
+[2025-04-08T05:45:22.641+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: running
+[2025-04-08T05:45:22.642+0000] {logging_mixin.py:190} INFO - Dag name:perbaikan_skripsi queued_at:2025-04-08 05:44:00.435118+00:00
+[2025-04-08T05:45:22.642+0000] {logging_mixin.py:190} INFO - Task hostname:a9576c91091e operator:PythonOperator
+[2025-04-08T05:45:22.660+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-08T05:45:22.690+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-08T05:45:22.693+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

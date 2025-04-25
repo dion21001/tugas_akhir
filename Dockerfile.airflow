@@ -1,0 +1,21 @@
+# Gunakan Apache Airflow sebagai base image
+FROM apache/airflow:2.10.4
+
+# Switch ke user root untuk install dependencies sistem
+USER root
+
+# Install sistem dependencies yang diperlukan TensorFlow
+RUN apt-get update && apt-get install -y \
+    libgl1 \
+    gcc \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Salin file requirements.txt ke dalam container
+COPY requirements_airflow.txt /requirements.txt
+
+# Kembali ke user airflow sebelum install pip packages
+USER airflow
+
+# Install dependencies dari requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt

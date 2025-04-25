@@ -1,0 +1,25 @@
+[2025-02-25T11:25:33.892+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-25T11:25:33.977+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T11:25:09.008519+00:00 [queued]>
+[2025-02-25T11:25:34.016+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T11:25:09.008519+00:00 [queued]>
+[2025-02-25T11:25:34.018+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2025-02-25T11:25:34.106+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): predict_and_store_result> on 2025-02-25 11:25:09.008519+00:00
+[2025-02-25T11:25:34.170+0000] {logging_mixin.py:190} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=13814) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-25T11:25:34.166+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'percobaan_akhir', 'predict_and_store_result', 'manual__2025-02-25T11:25:09.008519+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/tugas_akhir.py', '--cfg-path', '/tmp/tmp5ihi6dgr']
+[2025-02-25T11:25:34.178+0000] {standard_task_runner.py:72} INFO - Started process 13961 to run task
+[2025-02-25T11:25:34.177+0000] {standard_task_runner.py:105} INFO - Job 7: Subtask predict_and_store_result
+[2025-02-25T11:25:34.442+0000] {task_command.py:467} INFO - Running <TaskInstance: percobaan_akhir.predict_and_store_result manual__2025-02-25T11:25:09.008519+00:00 [running]> on host 15e5b1e5ccc7
+[2025-02-25T11:25:34.772+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dion Rikki' AIRFLOW_CTX_DAG_ID='percobaan_akhir' AIRFLOW_CTX_TASK_ID='predict_and_store_result' AIRFLOW_CTX_EXECUTION_DATE='2025-02-25T11:25:09.008519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-25T11:25:09.008519+00:00'
+[2025-02-25T11:25:34.780+0000] {logging_mixin.py:190} INFO - Task instance is in running state
+[2025-02-25T11:25:34.783+0000] {logging_mixin.py:190} INFO -  Previous state of the Task instance: queued
+[2025-02-25T11:25:34.786+0000] {logging_mixin.py:190} INFO - Current task name:predict_and_store_result state:running start_date:2025-02-25 11:25:33.979637+00:00
+[2025-02-25T11:25:34.788+0000] {logging_mixin.py:190} INFO - Dag name:percobaan_akhir and current dag run status:running
+[2025-02-25T11:25:34.791+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-25T13:57:24.789+0000] {job.py:229} INFO - Heartbeat recovered after 18.68 seconds
+[2025-02-25T13:57:30.907+0000] {job.py:229} INFO - Heartbeat recovered after 19.63 seconds
+[2025-02-25T15:58:07.693+0000] {job.py:229} INFO - Heartbeat recovered after 12.36 seconds
+[2025-02-25T16:00:05.968+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-02-25T16:00:06.434+0000] {process_utils.py:132} INFO - Sending 15 to group 13961. PIDs of all processes in the group: [13961]
+[2025-02-25T16:00:06.590+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 13961
+[2025-02-25T16:00:14.668+0000] {local_task_job_runner.py:127} ERROR - Received SIGTERM. Terminating subprocesses
+[2025-02-25T16:00:14.679+0000] {process_utils.py:132} INFO - Sending 15 to group 13961. PIDs of all processes in the group: [13961]
+[2025-02-25T16:00:14.690+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 13961
