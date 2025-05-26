@@ -4,136 +4,160 @@
   <meta charset="UTF-8">
   <title>IoT Sensor Dashboard & Fertilizer Prediction</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
+    body {
+      background: #f0f9f0; /* light green background */
+      font-family: 'Poppins', sans-serif; /* Poppins font */
+    }
+    .navbar {
+      background: linear-gradient(90deg, #4CAF50 0%, #81C784 100%); /* green gradient navbar */
+    }
     .card-title { font-size: 1rem; }
     .fs-3 { font-size: 1.5rem; }
     .section-title { margin-bottom: 20px; }
+    .center-form {
+      display: flex;
+      justify-content: center;
+    }
+    .center-form > div {
+      width: 100%;
+      max-width: 500px;
+    }
   </style>
 </head>
 <body>
-<div class="container my-4">
 
-  <!-- Bagian 1: Monitoring Sensor -->
-  <h2 class="section-title">📡 Data Sensor Terbaru</h2>
-  <div class="row">
-    <!-- Temperature -->
-    <div class="col-md-4 mb-3">
-      <div class="card text-center shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">🌡️ Temperature</h5>
-          <p class="card-text fs-3">{{ masukan.temperature }} °C</p>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="#">IoT Fertilizer Predictor</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" href="{% url 'index' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'tugas:DataMasukan' %}active{% endif %}" href="{% url 'tugas:DataMasukan' %}">Masukkan Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.resolver_match.url_name == 'tugas:DataPrediksi' %}active{% endif %}" href="{% url 'tugas:DataPrediksi' %}">Prediksi</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+
+    <!-- Monitoring Sensor -->
+    <h2 class="section-title">📡 Data Sensor Terbaru</h2>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🌡️ Temperature</h5>
+            <p class="card-text fs-3">{{ masukan.temperature }} °C</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">💧 Humidity</h5>
+            <p class="card-text fs-3">{{ masukan.humidity }} %</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🌿 Moisture</h5>
+            <p class="card-text fs-3">{{ masukan.moisture }} %</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Humidity -->
-    <div class="col-md-4 mb-3">
-      <div class="card text-center shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">💧 Humidity</h5>
-          <p class="card-text fs-3">{{ masukan.humidity }} %</p>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🧪 Nitrogen (N)</h5>
+            <p class="card-text fs-3">{{ masukan.nitrogen }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🧪 Phosphorus (P)</h5>
+            <p class="card-text fs-3">{{ masukan.phosphorous }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">🧪 Potassium (K)</h5>
+            <p class="card-text fs-3">{{ masukan.potassium }}</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Moisture -->
-    <div class="col-md-4 mb-3">
-      <div class="card text-center shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">🌿 Moisture</h5>
-          <p class="card-text fs-3">{{ masukan.moisture }} %</p>
-        </div>
+    <!-- Input Manual dan Prediksi -->
+    <div class="row my-5 center-form">
+      <div>
+        <h2 class="section-title text-center">✍️ Input Soil & Crop Type</h2>
+        <form method="POST" class="shadow-sm p-4 rounded bg-light">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="soil_type" class="form-label">🧱 Soil Type</label>
+            <select name="soil_type" class="form-select">
+              <option value="">-- Pilih Soil Type --</option>
+              <option value="Clayey" {% if masukan.soil_type == "Clayey" %}selected{% endif %}>Clayey</option>
+              <option value="Loamy" {% if masukan.soil_type == "Loamy" %}selected{% endif %}>Loamy</option>
+              <option value="Red" {% if masukan.soil_type == "Red" %}selected{% endif %}>Red</option>
+              <option value="Black" {% if masukan.soil_type == "Black" %}selected{% endif %}>Black</option>
+              <option value="Sandy" {% if masukan.soil_type == "Sandy" %}selected{% endif %}>Sandy</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="crop_type" class="form-label">🌾 Crop Type</label>
+            <select name="crop_type" class="form-select">
+              <option value="">-- Pilih Crop Type --</option>
+              <option value="rice" {% if masukan.crop_type == "rice" %}selected{% endif %}>Rice</option>
+              <option value="Wheat" {% if masukan.crop_type == "Wheat" %}selected{% endif %}>Wheat</option>
+              <option value="Tobacco" {% if masukan.crop_type == "Tobacco" %}selected{% endif %}>Tobacco</option>
+              <option value="Sugarcane" {% if masukan.crop_type == "Sugarcane" %}selected{% endif %}>Sugarcane</option>
+              <option value="Pulses" {% if masukan.crop_type == "Pulses" %}selected{% endif %}>Pulses</option>
+              <option value="pomegranate" {% if masukan.crop_type == "pomegranate" %}selected{% endif %}>Pomegranate</option>
+              <option value="Paddy" {% if masukan.crop_type == "Paddy" %}selected{% endif %}>Paddy</option>
+              <option value="Oil seeds" {% if masukan.crop_type == "Oil seeds" %}selected{% endif %}>Oil seeds</option>
+              <option value="Millets" {% if masukan.crop_type == "Millets" %}selected{% endif %}>Millets</option>
+              <option value="Maize" {% if masukan.crop_type == "Maize" %}selected{% endif %}>Maize</option>
+              <option value="Ground Nuts" {% if masukan.crop_type == "Ground Nuts" %}selected{% endif %}>Ground Nuts</option>
+              <option value="Cotton" {% if masukan.crop_type == "Cotton" %}selected{% endif %}>Cotton</option>
+              <option value="coffee" {% if masukan.crop_type == "coffee" %}selected{% endif %}>Coffee</option>
+              <option value="watermelon" {% if masukan.crop_type == "watermelon" %}selected{% endif %}>Watermelon</option>
+              <option value="Barley" {% if masukan.crop_type == "Barley" %}selected{% endif %}>Barley</option>
+              <option value="kidneybeans" {% if masukan.crop_type == "kidneybeans" %}selected{% endif %}>Kidney Beans</option>
+              <option value="orange" {% if masukan.crop_type == "orange" %}selected{% endif %}>Orange</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">💾 Simpan Data</button>
+        </form>
       </div>
     </div>
+
   </div>
 
-  <div class="row">
-    <!-- Nitrogen -->
-    <div class="col-md-4 mb-3">
-      <div class="card text-center shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">🧪 Nitrogen (N)</h5>
-          <p class="card-text fs-3">{{ masukan.nitrogen }}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Phosphorous -->
-    <div class="col-md-4 mb-3">
-      <div class="card text-center shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">🧪 Phosphorus (P)</h5>
-          <p class="card-text fs-3">{{ masukan.phosphorous }}</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Potassium -->
-    <div class="col-md-4 mb-3">
-      <div class="card text-center shadow-sm">
-        <div class="card-body">
-          <h5 class="card-title">🧪 Potassium (K)</h5>
-          <p class="card-text fs-3">{{ masukan.potassium }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bagian 2 & 3: Form Input Manual dan Hasil Prediksi menyamping -->
-  <div class="row my-5">
-    <!-- Form Input Manual -->
-    <div class="col-md-6">
-      <h2 class="section-title">✍️ Input Soil & Crop Type</h2>
-      <form method="POST" class="shadow-sm p-4 rounded bg-light">
-        {% csrf_token %}
-        <div class="mb-3">
-          <label for="soil_type" class="form-label">🧱 Soil Type</label>
-          <select name="soil_type" class="form-select">
-            <option value="">-- Pilih Soil Type --</option>
-            <option value="Clayey" {% if masukan.soil_type == "Clayey" %}selected{% endif %}>Clayey</option>
-            <option value="Loamy" {% if masukan.soil_type == "Loamy" %}selected{% endif %}>Loamy</option>
-            <option value="Red" {% if masukan.soil_type == "Red" %}selected{% endif %}>Red</option>
-            <option value="Black" {% if masukan.soil_type == "Black" %}selected{% endif %}>Black</option>
-            <option value="Sandy" {% if masukan.soil_type == "Sandy" %}selected{% endif %}>Sandy</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="crop_type" class="form-label">🌾 Crop Type</label>
-          <select name="crop_type" class="form-select">
-            <option value="">-- Pilih Crop Type --</option>
-            <option value="rice" {% if masukan.crop_type == "rice" %}selected{% endif %}>Rice</option>
-            <option value="Wheat" {% if masukan.crop_type == "Wheat" %}selected{% endif %}>Wheat</option>
-            <option value="Tobacco" {% if masukan.crop_type == "Tobacco" %}selected{% endif %}>Tobacco</option>
-            <option value="Sugarcane" {% if masukan.crop_type == "Sugarcane" %}selected{% endif %}>Sugarcane</option>
-            <option value="Pulses" {% if masukan.crop_type == "Pulses" %}selected{% endif %}>Pulses</option>
-            <option value="pomegranate" {% if masukan.crop_type == "pomegranate" %}selected{% endif %}>Pomegranate</option>
-            <option value="Paddy" {% if masukan.crop_type == "Paddy" %}selected{% endif %}>Paddy</option>
-            <option value="Oil seeds" {% if masukan.crop_type == "Oil seeds" %}selected{% endif %}>Oil seeds</option>
-            <option value="Millets" {% if masukan.crop_type == "Millets" %}selected{% endif %}>Millets</option>
-            <option value="Maize" {% if masukan.crop_type == "Maize" %}selected{% endif %}>Maize</option>
-            <option value="Ground Nuts" {% if masukan.crop_type == "Ground Nuts" %}selected{% endif %}>Ground Nuts</option>
-            <option value="Cotton" {% if masukan.crop_type == "Cotton" %}selected{% endif %}>Cotton</option>
-            <option value="coffee" {% if masukan.crop_type == "coffee" %}selected{% endif %}>Coffee</option>
-            <option value="watermelon" {% if masukan.crop_type == "watermelon" %}selected{% endif %}>Watermelon</option>
-            <option value="Barley" {% if masukan.crop_type == "Barley" %}selected{% endif %}>Barley</option>
-            <option value="kidneybeans" {% if masukan.crop_type == "kidneybeans" %}selected{% endif %}>Kidney Beans</option>
-            <option value="orange" {% if masukan.crop_type == "orange" %}selected{% endif %}>Orange</option>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">💾 Simpan Data</button>
-      </form>
-    </div>
-
-    <!-- Hasil Prediksi -->
-    <div class="col-md-6">
-      {% for data in predictions %}
-        <h2>{{ data.predicted_fertilizer }}</h2>
-        <h2>{{ data.created_at }}</h2>  
-      {% endfor %}
-    </div>
-  </div>
-
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
